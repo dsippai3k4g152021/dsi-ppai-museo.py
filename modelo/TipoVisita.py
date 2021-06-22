@@ -4,5 +4,5 @@ class TipoVisita:
     def __init__(self, nombre):
         self.nombre = nombre
 
-    def mostrar_nombre(self):
+    def mostrarNombre(self):
         return self.nombre

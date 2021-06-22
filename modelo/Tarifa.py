@@ -1,3 +1,8 @@
+from modelo.TipoEntrada import TipoEntrada
+from modelo.TipoVisita import TipoVisita
+from utilitarios.DBSession import DBSession
+
+
 class Tarifa:
     fecha_inicio_vigencia = ''
     fecha_fin_vigencia = ''
@@ -6,10 +11,13 @@ class Tarifa:
     tipo_entrada = None
     tipo_visita = None
 
-    def __init__(self, fecha_inicio_vigencia, fecha_fin_vigencia, monto, monto_adicional_guia, tipo_entrada, tipo_visita):
-        self.fecha_inicio_vigencia = fecha_inicio_vigencia
-        self.fecha_fin_vigencia = fecha_fin_vigencia
-        self.monto = monto
-        self.monto_adicional_guia = monto_adicional_guia
-        self.tipo_entrada = tipo_entrada
-        self.tipo_visita = tipo_visita
+    def mostrarMontosVigentes(self):
+        db_session = DBSession().get_db_session()
+        #Obtener tipo de entrada
+        self.tipo_entrada=db_session.query(TipoEntrada).filter(TipoVisita.id == self.tipo_entrada).first()
+
+        #Obtener tipo de visita
+        self.tipo_visita=db_session.query(TipoVisita).filter(TipoVisita.id == self.tipo_visita).first()
+
+        #VERIFICAR RETORNO ENTRE TODOS
+        return [self.tipo_entrada.MostrarNombre(),self.tipo_visitaMostrarNombre()]

@@ -1,8 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import sessionmaker
 
 from modelo.Empleado import Empleado
-from utilitarios.Connection import Base, engine
+from utilitarios.Connection import Base
 from utilitarios.DBSession import DBSession
 
 
