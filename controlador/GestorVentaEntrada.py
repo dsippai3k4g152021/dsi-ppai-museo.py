@@ -7,6 +7,7 @@ class GestorVentaEntrada:
     empleado_logueado = None
     sesion_actual = None
     tarifas = []
+    exposiciones = []
     sede = None
     pantalla_venta_entrada = None
 
@@ -33,6 +34,9 @@ class GestorVentaEntrada:
         #Obtener Tarifas de la sede actual
         self.tarifas=self.sede.obtenerTarifasVigentes()
 
+    def BuscarExposicionVigente():
+
+        self.exposiciones=self.sede.calcularDuracionaAExposicionesVigentes()
 
          # sesion = Sesion(id=1, fecha_inicio='20', fecha_fin='21', hora_inicio='22', hora_fin='23', usuario=1)
         # usuario = Usuario(id=1, nombre='jdoe', contrasena='pass123', caducidad=10, empleado=1)
